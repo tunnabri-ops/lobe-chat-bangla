@@ -1,0 +1,12 @@
+services:
+  lobe-chat:
+    image: lobehub/lobe-chat:latest
+    container_name: lobe-chat-bangla
+    ports:
+      - "3210:3210"
+    environment:
+      # Put your key in a .env file next to this compose file, or export it first.
+      # Without a provider key, add a local model (e.g. Ollama) from Settings instead.
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ACCESS_CODE=${ACCESS_CODE:-}
+    restart: unless-stopped
